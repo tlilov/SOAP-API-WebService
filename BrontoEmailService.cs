@@ -79,10 +79,7 @@ namespace EmailSystem
                 List<contactObject> contacts = new List<contactObject>();
                 contact.Email = contact.Email.ToLower();
 
-                // I don't understand why we have this concept
-                // of a default contact status. Apparently it has
-                // something to do with VG, but it doesn't belong 
-                // here... it should be in the 1CB code. 
+             
                 if (Site != null && contact.Status != ContactStatusEnum.Onboarding)
                 {
                     contact.Status = (ContactStatusEnum)Enum.Parse(typeof(ContactStatusEnum), Site.DefaultContactStatus, true);
@@ -124,8 +121,7 @@ namespace EmailSystem
 
             var contacts = new List<contactObject>();
 
-            // I don't know why we are forcing the email to lower-case,
-            // but apparently that is what we need.
+            
             contact.Email = contact.Email.ToLower();
             var brontoContact = translator.TranslateContact(contact, GetContactFields());
 
